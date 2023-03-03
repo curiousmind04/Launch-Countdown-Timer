@@ -143,15 +143,17 @@ h1 {
 }
 
 footer {
+  background-image: url("images/pattern-hills.svg");
+  background-size: 250% 10.625rem;
+  background-position: bottom right -5rem;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  position: relative;
-  /* background: lightcyan; */
+  /* height: 100%; */
 }
 
-.hills-pattern {
+/* .hills-pattern {
   background-image: url("images/pattern-hills.svg");
   background-size: 250% 10.625rem;
   background-position: bottom right -5rem;
@@ -162,7 +164,7 @@ footer {
   bottom: 0;
   right: 0;
   z-index: -1;
-}
+} */
 
 .social-icons {
   width: 9rem;
@@ -227,8 +229,7 @@ footer {
     font-size: 0.85rem;
     letter-spacing: 0.3rem;
   }
-  .hills-pattern {
-    background-size: 120% 11.25rem;
-    height: 11.25rem;
+  footer {
+    background-size: 120% 10.625rem;
   }
 }
