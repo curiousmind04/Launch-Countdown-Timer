@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("images/bg-stars.svg");
+  background-color: hsl(234, 17%, 12%);
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto 170px;
+}
+
+main {
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding-inline: 2rem;
+  margin-bottom: 3.4rem;
+}
+
+.countdown-container {
+  width: 86%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.number {
+  background: linear-gradient(hsl(235, 20%, 22%) 50%, hsl(236, 21%, 26%) 50%);
+  width: 4.2rem;
+  height: 4.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.number::after {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 10%;
+  background: hsl(234, 17%, 12%);
+  left: -1px;
+  top: 45%;
+  border-radius: 0 80% 80% 0;
+}
+
+.number::before {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 10%;
+  background: hsl(234, 17%, 12%);
+  right: -1px;
+  top: 45%;
+  border-radius: 80% 0 0 80%;
+}
+
+h2 {
+  background-image: linear-gradient(
+    to bottom,
+    hsl(345, 45%, 46%),
+    hsl(345, 95%, 68%)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+}
+
+.hline {
+  background: hsl(236, 21%, 26%);
+  opacity: 0.2;
+  position: absolute;
+  width: calc(100% - 8px);
+  height: 1px;
+  bottom: 50%;
+}
+
+p {
+  color: hsl(237, 18%, 59%);
+  font-size: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+.hills-pattern {
+  background-image: url("images/pattern-hills.svg");
+  background-size: 250% 170px;
+  background-position: bottom right -5rem;
+  background-repeat: no-repeat;
+  height: 170px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  width: 9rem;
+  margin-top: 2.8rem;
+  display: flex;
+  justify-content: space-between;
+}
