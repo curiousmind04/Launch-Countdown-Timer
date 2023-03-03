@@ -16,7 +16,7 @@ body {
   position: relative;
   text-align: center;
   display: grid;
-  grid-template-rows: auto 170px;
+  grid-template-rows: auto 10.625rem;
 }
 
 main {
@@ -94,7 +94,7 @@ h1 {
   border-top-left-radius: 0.1em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: hsl(345, 45%, 46%);
-  padding-top: 16px;
+  padding-top: 1rem;
   line-height: 1;
 }
 
@@ -144,10 +144,10 @@ h1 {
 
 .hills-pattern {
   background-image: url("images/pattern-hills.svg");
-  background-size: 250% 170px;
+  background-size: 250% 10.625rem;
   background-position: bottom right -5rem;
   background-repeat: no-repeat;
-  height: 170px;
+  height: 10.625rem;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -178,7 +178,7 @@ footer {
   }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 20.625rem) {
   .container {
     width: 95%;
   }
@@ -196,7 +196,7 @@ footer {
   }
 }
 
-@media (min-width: 750px) {
+@media (min-width: 46rem) {
   main {
     min-height: 26rem;
   }
@@ -218,14 +218,14 @@ footer {
   }
   .top,
   .flip-card .top-flip {
-    padding-top: 36px;
+    padding-top: 2.25rem;
   }
   .segment-title {
     font-size: 0.85rem;
     letter-spacing: 0.3rem;
   }
   .hills-pattern {
-    background-size: 120% 180px;
-    height: 180px;
+    background-size: 120% 11.25rem;
+    height: 11.25rem;
   }
 }

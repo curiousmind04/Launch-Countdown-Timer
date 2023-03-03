@@ -9,6 +9,8 @@ const currentDate = new Date();
 
 const test = currentDate.getTime() + 631105340;
 
+//set countdown to 5 days ahead
+
 const countToDateDay = addDays(currentDate, 5);
 
 const countToDateTime = countToDateDay.getTime();
