@@ -142,6 +142,15 @@ h1 {
   letter-spacing: 0.15rem;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  /* background: lightcyan; */
+}
+
 .hills-pattern {
   background-image: url("images/pattern-hills.svg");
   background-size: 250% 10.625rem;
@@ -153,14 +162,6 @@ h1 {
   bottom: 0;
   right: 0;
   z-index: -1;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background: lightcyan;
 }
 
 .social-icons {
