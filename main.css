@@ -145,7 +145,8 @@ h1 {
 footer {
   background-image: url("images/pattern-hills.svg");
   background-size: 250% 10.625rem;
-  background-position: bottom right -5rem;
+  background-position: bottom;
+  /* background-position: bottom right -5rem; */
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
