@@ -36,29 +36,24 @@ h1 {
   margin-bottom: 3.4rem;
 }
 
-.countdown-container {
+.container {
   width: 86%;
+  max-width: 43rem;
   display: flex;
   justify-content: space-between;
 }
 
-.number {
-  background: linear-gradient(hsl(235, 20%, 22%) 50%, hsl(236, 21%, 26%) 50%);
-  width: 4.2rem;
-  height: 4.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.4);
-  border-radius: 0.3rem;
-  transition: all 0.3s ease-in;
+.flip-card {
   position: relative;
-  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 0.1em;
+  margin-bottom: 1rem;
   overflow: hidden;
 }
 
-.number::after {
+.flip-card::after {
   position: absolute;
   content: "";
   width: 4px;
@@ -67,9 +62,10 @@ h1 {
   left: -1px;
   top: 45%;
   border-radius: 0 80% 80% 0;
+  z-index: 50;
 }
 
-.number::before {
+.flip-card::before {
   position: absolute;
   content: "";
   width: 4px;
@@ -78,31 +74,68 @@ h1 {
   right: -1px;
   top: 45%;
   border-radius: 80% 0 0 80%;
+  z-index: 50;
 }
 
-h2 {
-  background-image: linear-gradient(
-    to bottom,
-    hsl(345, 45%, 46%),
-    hsl(345, 95%, 68%)
-  );
-  background-size: 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+  height: 2.1rem;
+  width: 4.2rem;
+  overflow: hidden;
   font-size: 2rem;
 }
 
-.hline {
-  background: hsl(236, 21%, 26%);
-  opacity: 0.2;
-  position: absolute;
-  width: calc(100% - 8px);
-  height: 1px;
-  bottom: 50%;
+.top,
+.flip-card .top-flip {
+  background-color: hsl(236, 19%, 17%);
+  border-top-right-radius: 0.1em;
+  border-top-left-radius: 0.1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: hsl(345, 45%, 46%);
+  padding-top: 16px;
+  line-height: 1;
 }
 
-p {
+.bottom,
+.flip-card .bottom-flip {
+  background-color: hsl(236, 21%, 26%);
+  border-bottom-right-radius: 0.1em;
+  border-bottom-left-radius: 0.1em;
+  color: hsl(345, 95%, 68%);
+  line-height: 0.03;
+}
+
+.flip-card .top-flip {
+  position: absolute;
+  width: 100%;
+  animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card .bottom-flip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.segment-title {
   color: hsl(237, 18%, 59%);
   font-size: 0.45rem;
   text-transform: uppercase;
@@ -133,4 +166,66 @@ footer {
   margin-top: 2.8rem;
   display: flex;
   justify-content: space-between;
+}
+
+.social-icons svg {
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .social-icons svg:hover path {
+    fill: hsl(345, 95%, 68%);
+  }
+}
+
+@media (max-width: 330px) {
+  .container {
+    width: 95%;
+  }
+  .top,
+  .bottom,
+  .flip-card .top-flip,
+  .flip-card .bottom-flip {
+    height: 1.7rem;
+    width: 3.4rem;
+    font-size: 1.4rem;
+  }
+  .top,
+  .flip-card .top-flip {
+    padding-top: 15px;
+  }
+}
+
+@media (min-width: 750px) {
+  main {
+    min-height: 26rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 6.8rem;
+  }
+  .flip-card {
+    margin-bottom: 1.4rem;
+    box-shadow: 2px 5px 4px 3px rgba(0, 0, 0, 0.4);
+  }
+  .top,
+  .bottom,
+  .flip-card .top-flip,
+  .flip-card .bottom-flip {
+    height: 4.5rem;
+    width: 9.2rem;
+    font-size: 4.6rem;
+  }
+  .top,
+  .flip-card .top-flip {
+    padding-top: 36px;
+  }
+  .segment-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.3rem;
+  }
+  .hills-pattern {
+    background-size: 120% 180px;
+    height: 180px;
+  }
 }

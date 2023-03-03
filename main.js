@@ -1,75 +1,80 @@
-const daysCard = document.querySelector(".days");
-const hoursCard = document.querySelector(".hours");
-const minutesCard = document.querySelector(".minutes");
-const secondsCard = document.querySelector(".seconds");
-
-///Get time for 5 days from now
-
-//function to add days to a date
-
 function addDays(date, days) {
   date.setDate(date.getDate() + days);
   return date;
 }
 
-//current date
-
 const currentDate = new Date();
 
-//line below this is to test countdown time of 5 seconds
+//line below for testing
 
-const test = currentDate.getTime() + 600000;
+const test = currentDate.getTime() + 631105340;
 
-//countdown date (5 days from current date)
+const countToDateDay = addDays(currentDate, 5);
 
-const countdownDate = addDays(currentDate, 5);
+const countToDateTime = countToDateDay.getTime();
 
-//time to countdown date
-
-const countdownDateTime = countdownDate.getTime();
-
-let rotate = 360;
-
-const updateCount = setInterval(function () {
-  // Get date and time for right now (updates every second)
+let interval = setInterval(() => {
   const now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  //   const distance = countdownDateTime - now;
+  const distance = countToDateTime - now;
 
-  const distance = test - now;
+  //   const distance = test - now;
 
-  // Time calculations for days, hours, minutes and seconds
   if (distance < 1) {
-    clearInterval(updateCount);
+    clearInterval(interval);
     console.log("finished");
     alert("Countdown Finished!!!");
     return;
-  } else {
-    days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    seconds = Math.floor((distance % (1000 * 60)) / 1000);
   }
 
-  //fill out ui with countdown time
-  daysCard.innerHTML = days;
-  hoursCard.innerHTML = hours;
-  minutesCard.innerHTML = minutes;
-  secondsCard.innerHTML = seconds;
+  flipAllCards(distance);
 
-  //   console.log(updateCount);
+  //   console.log(interval);
+}, 250);
 
-  //   if (seconds === 0 && minutes > 0) {
-  //     minutesCard.parentNode.style.transform = `rotateX(${rotate}deg)`;
-  //     rotate = rotate + 360;
-  //   }
-  //   if (minutes === 59 && hours > 0) {
-  //     hoursCard.parentNode.style.transform = `rotateX(${rotate}deg)`;
-  //     rotate = rotate + 360;
-  //   }
-  //   if (hours === 23 && days > 0) {
-  //     daysCard.parentNode.style.transform = `rotateX(${rotate}deg)`;
-  //     rotate = rotate + 360;
-  //   }
-}, 1000);
+function flipAllCards(time) {
+  days = Math.floor(time / (1000 * 60 * 60 * 24));
+  hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+  seconds = Math.floor((time % (1000 * 60)) / 1000);
+
+  flip(document.querySelector("[data-days]"), days);
+
+  flip(document.querySelector("[data-hours]"), hours);
+
+  flip(document.querySelector("[data-minutes]"), minutes);
+
+  flip(document.querySelector("[data-seconds]"), seconds);
+}
+
+function flip(flipCard, newNumber) {
+  const topHalf = flipCard.querySelector(".top");
+  const bottomHalf = flipCard.querySelector(".bottom");
+  let startNumber = parseInt(topHalf.textContent);
+  if (newNumber === startNumber) return;
+
+  const topFlip = document.createElement("div");
+  topFlip.classList.add("top-flip");
+  const bottomFlip = document.createElement("div");
+  bottomFlip.classList.add("bottom-flip");
+
+  newNumber = newNumber < 10 ? "0" + newNumber : newNumber;
+  startNumber = startNumber < 10 ? "0" + startNumber : startNumber;
+
+  //   topHalf.textContent = startNumber;
+  //   bottomHalf.textContent = startNumber;
+  topFlip.textContent = startNumber;
+  bottomFlip.textContent = newNumber;
+
+  topFlip.addEventListener("animationstart", (e) => {
+    topHalf.textContent = newNumber;
+  });
+  topFlip.addEventListener("animationend", (e) => {
+    topFlip.remove();
+  });
+  bottomFlip.addEventListener("animationend", (e) => {
+    bottomHalf.textContent = newNumber;
+    bottomFlip.remove();
+  });
+  flipCard.append(topFlip, bottomFlip);
+}
