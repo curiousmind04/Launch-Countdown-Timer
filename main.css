@@ -221,7 +221,7 @@ footer {
     letter-spacing: 0.3rem;
   }
   footer {
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: bottom;
   }
 }
