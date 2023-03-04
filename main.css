@@ -146,27 +146,13 @@ footer {
   background-image: url("images/pattern-hills.svg");
   background-size: cover;
   /* background-size: 250% 10.625rem; */
-  background-position: bottom right -5rem;
+  background-position: bottom right -8rem;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
   background-color: rgb(76, 168, 168);
 }
-
-/* .hills-pattern {
-  background-image: url("images/pattern-hills.svg");
-  background-size: 250% 10.625rem;
-  background-position: bottom right -5rem;
-  background-repeat: no-repeat;
-  height: 10.625rem;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-} */
 
 .social-icons {
   width: 9rem;
@@ -232,6 +218,7 @@ footer {
     letter-spacing: 0.3rem;
   }
   footer {
-    background-size: 120% 10.625rem;
+    background-size: 100% 170px;
+    background-position: bottom right;
   }
 }
