@@ -190,6 +190,9 @@ footer {
 }
 
 @media (min-width: 46rem) {
+  body {
+    grid-template-rows: auto 185px;
+  }
   main {
     min-height: 26rem;
   }
@@ -218,7 +221,7 @@ footer {
     letter-spacing: 0.3rem;
   }
   footer {
-    background-size: 100% 170px;
-    background-position: bottom right;
+    background-size: 100% 100%;
+    background-position: bottom;
   }
 }
