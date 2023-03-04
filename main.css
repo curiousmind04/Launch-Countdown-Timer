@@ -151,7 +151,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(76, 168, 168);
+  /* background-color: rgb(76, 168, 168); */
 }
 
 .social-icons {
@@ -221,7 +221,7 @@ footer {
     letter-spacing: 0.3rem;
   }
   footer {
-    background-size: cover;
+    /* background-size: cover; */
     background-position: bottom;
   }
 }
